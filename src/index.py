@@ -33,8 +33,8 @@ def lambda_handler(event, context):
     if len(last_line_parts) >=2:
         if md5_hash != lines[-1].strip().split('=')[1]:
             raise ValueError('Hash does not match')
-        else:
-            raise ValueError('Invalid format for hash line')
+    else:
+        raise ValueError('Invalid format for hash line')
     # Insertar datos en la tabla
     table = dynamodb.Table('ai-technical-__test__-javier-eduardo')
     table.put_item(Item=data)
