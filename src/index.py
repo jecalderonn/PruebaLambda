@@ -25,7 +25,7 @@ def lambda_handler(event, context):
             if key != 'hash':
                 data[key] = value
     # Creo el Hash MD5 a comparar con el que viene en el archivo
-    hash_string = '~'.join([data[key] for key in sorted(data.keys())])
+    hash_string = '~'.join([data[key] for key in (data.keys())])
     hash_object = hashlib.md5(hash_string.encode())
     md5_hash = hash_object.hexdigest()
     # Validacion Hash
